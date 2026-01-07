@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStore - Tecnologia e Estilo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1><i class="fas fa-bolt"></i> TechStore</h1>
+                </div>
+                <nav class="nav">
+                    <ul>
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#products">Produtos</a></li>
+                        <li><a href="#about">Sobre</a></li>
+                        <li><a href="#contact">Contato</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="btn-search" onclick="toggleSearch()" title="Buscar">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button class="btn-user" onclick="toggleUserMenu()" title="Minha Conta">
+                        <i class="fas fa-user"></i>
+                    </button>
+                    <button class="btn-cart" onclick="toggleCart()" title="Carrinho">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span id="cart-count" class="cart-count">0</span>
+                    </button>
+                    <button class="btn-theme" onclick="toggleTheme()" title="Alternar Tema">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="search-bar" class="search-bar hidden">
+            <div class="container">
+                <input type="text" id="search-input" placeholder="Buscar produtos..." onkeyup="searchProducts(event)">
+                <button onclick="toggleSearch()"><i class="fas fa-times"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-background">
+                <div class="hero-particles"></div>
+            </div>
+            <div class="container">
+                <div class="hero-content" data-aos="fade-up">
+                    <div class="hero-badge">
+                        <i class="fas fa-sparkles"></i>
+                        <span>Novidades Chegando!</span>
+                    </div>
+                    <h1 class="hero-title">Tecnologia que <span class="gradient-text">Transforma</span></h1>
+                    <p class="hero-subtitle">Descubra produtos inovadores com até 40% OFF</p>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary btn-large" onclick="scrollToProducts()">
+                            <i class="fas fa-shopping-bag"></i>
+                            Comprar Agora
+                        </button>
+                        <button class="btn btn-secondary btn-large" onclick="scrollToProducts()">
+                            <i class="fas fa-play-circle"></i>
+                            Ver Catálogo
+                        </button>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">10K+</span>
+                            <span class="stat-label">Clientes</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Produtos</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">4.8★</span>
+                            <span class="stat-label">Avaliação</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="banners">
+            <div class="container">
+                <div class="banners-grid">
+                    <div class="banner banner-1" data-aos="fade-right" data-aos-delay="100">
+                        <div class="banner-content">
+                            <h3>Super Sale</h3>
+                            <p>Até 40% OFF</p>
+                            <button class="btn btn-outline">Aproveitar</button>
+                        </div>
+                        <div class="banner-icon">
+                            <i class="fas fa-percentage"></i>
+                        </div>
+                    </div>
+                    <div class="banner banner-2" data-aos="fade-up" data-aos-delay="200">
+                        <div class="banner-content">
+                            <h3>Frete Grátis</h3>
+                            <p>Em compras acima de R$ 299</p>
+                            <button class="btn btn-outline">Saiba Mais</button>
+                        </div>
+                        <div class="banner-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                    </div>
+                    <div class="banner banner-3" data-aos="fade-left" data-aos-delay="300">
+                        <div class="banner-content">
+                            <h3>Novidades</h3>
+                            <p>Lançamentos exclusivos</p>
+                            <button class="btn btn-outline">Ver Novos</button>
+                        </div>
+                        <div class="banner-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="products" class="products">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <h2>Produtos <span class="gradient-text">Em Destaque</span></h2>
+                    <p>Descubra nossa seleção dos melhores produtos</p>
+                </div>
+                <div class="filters" data-aos="fade-up" data-aos-delay="100">
+                    <div class="filter-tabs">
+                        <button class="filter-tab active" onclick="filterByCategory('')" data-category="">
+                            <i class="fas fa-th"></i>
+                            Todos
+                        </button>
+                        <button class="filter-tab" onclick="filterByCategory('eletronicos')" data-category="eletronicos">
+                            <i class="fas fa-laptop"></i>
+                            Eletrônicos
+                        </button>
+                        <button class="filter-tab" onclick="filterByCategory('roupas')" data-category="roupas">
+                            <i class="fas fa-tshirt"></i>
+                            Roupas
+                        </button>
+                        <button class="filter-tab" onclick="filterByCategory('acessorios')" data-category="acessorios">
+                            <i class="fas fa-headphones"></i>
+                            Acessórios
+                        </button>
+                    </div>
+                    <div class="filter-controls">
+                        <select id="sort-filter" onchange="sortProducts()" class="sort-select">
+                            <option value="name">Ordenar por Nome</option>
+                            <option value="price-asc">Preço: Menor para Maior</option>
+                            <option value="price-desc">Preço: Maior para Menor</option>
+                            <option value="rating">Mais Avaliados</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="products-grid" class="products-grid">
+                    <!-- Products will be loaded here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <div class="footer-logo">
+                            <h3><i class="fas fa-bolt"></i> TechStore</h3>
+                            <p>Tecnologia e inovação ao seu alcance. Os melhores produtos com os melhores preços.</p>
+                            <div class="social-links">
+                                <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+                                <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                                <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Institucional</h4>
+                        <ul>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Sobre Nós</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Política de Privacidade</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Termos de Uso</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Trabalhe Conosco</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Ajuda</h4>
+                        <ul>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Central de Ajuda</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Trocas e Devoluções</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Formas de Pagamento</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Rastreamento</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Contato</h4>
+                        <div class="contact-info">
+                            <p><i class="fas fa-phone"></i> (11) 1234-5678</p>
+                            <p><i class="fas fa-envelope"></i> contato@techstore.com</p>
+                            <p><i class="fas fa-map-marker-alt"></i> São Paulo, SP</p>
+                            <div class="payment-methods">
+                                <i class="fab fa-cc-visa"></i>
+                                <i class="fab fa-cc-mastercard"></i>
+                                <i class="fab fa-cc-amex"></i>
+                                <i class="fab fa-cc-paypal"></i>
+                                <i class="fab fa-pix"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2024 TechStore. Todos os direitos reservados.</p>
+                <p>Desenvolvido com <i class="fas fa-heart" style="color: #e74c3c;"></i> no Brasil</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Carrinho de Compras</h3>
+            <button onclick="toggleCart()"><i class="fas fa-times"></i></button>
+        </div>
+        <div id="cart-items" class="cart-items">
+            <!-- Cart items will be loaded here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <strong>Total: R$ <span id="cart-total">0.00</span></strong>
+            </div>
+            <button class="btn btn-primary" onclick="checkout()">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <div id="overlay" class="overlay hidden" onclick="toggleCart()"></div>
+
+    <script src="products.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script-new.js"></script>
+</body>
+</html>

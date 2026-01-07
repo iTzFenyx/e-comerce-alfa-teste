@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - TechStore</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1><i class="fas fa-bolt"></i> TechStore</h1>
+                </div>
+                <nav class="nav">
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="index.html#products">Produtos</a></li>
+                        <li><a href="about.html">Sobre</a></li>
+                        <li><a href="contact.html">Contato</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="btn-user" onclick="toggleUserMenu()" title="Minha Conta">
+                        <i class="fas fa-user"></i>
+                    </button>
+                    <button class="btn-cart" onclick="toggleCart()" title="Carrinho">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span id="cart-count" class="cart-count">0</span>
+                    </button>
+                    <button class="btn-theme" onclick="toggleTheme()" title="Alternar Tema">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="checkout-section">
+            <div class="container">
+                <div class="checkout-header" data-aos="fade-up">
+                    <h1>Finalizar Compra</h1>
+                    <div class="checkout-steps">
+                        <div class="step active">
+                            <span class="step-number">1</span>
+                            <span class="step-label">Dados</span>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            <span class="step-label">Pagamento</span>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            <span class="step-label">Confirmação</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="checkout-content">
+                    <div class="checkout-grid">
+                        <!-- Customer Information -->
+                        <div class="checkout-left" data-aos="fade-right">
+                            <div class="checkout-form">
+                                <h2>Dados Pessoais</h2>
+                                <form id="customer-form">
+                                    <div class="form-grid">
+                                        <div class="form-group">
+                                            <label for="name">Nome Completo *</label>
+                                            <input type="text" id="name" name="name" required>
+                                            <span class="error-message"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email">E-mail *</label>
+                                            <input type="email" id="email" name="email" required>
+                                            <span class="error-message"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="phone">Telefone *</label>
+                                            <input type="tel" id="phone" name="phone" placeholder="(11) 12345-6789" required>
+                                            <span class="error-message"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="cpf">CPF *</label>
+                                            <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required>
+                                            <span class="error-message"></span>
+                                        </div>
+                                    </div>
+                                </form>
+
+                                <h2>Endereço de Entrega</h2>
+                                <form id="address-form">
+                                    <div class="form-grid">
+                                        <div class="form-group">
+                                            <label for="cep">CEP *</label>
+                                            <input type="text" id="cep" name="cep" placeholder="00000-000" required>
+                                            <button type="button" class="btn-cep" onclick="searchCep()">Buscar</button>
+                                            <span class="error-message"></span>
+                                        </div>
+                                        <div class="form-group full-width">
+                                            <label for="address">Endereço *</label>
+                                            <input type="text" id="address" name="address" required>
+                                            <span class="error-message"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="number">Número *</label>
+                                            <input type="text" id="number" name="number" required>
+                                            <span class="error-message"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="complemento">Complemento</label>
+                                            <input type="text" id="complemento" name="complemento">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="neighborhood">Bairro *</label>
+                                            <input type="text" id="neighborhood" name="neighborhood" required>
+                                            <span class="error-message"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="city">Cidade *</label>
+                                            <input type="text" id="city" name="city" required>
+                                            <span class="error-message"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="state">Estado *</label>
+                                            <select id="state" name="state" required>
+                                                <option value="">Selecione...</option>
+                                                <option value="AC">Acre</option>
+                                                <option value="AL">Alagoas</option>
+                                                <option value="AP">Amapá</option>
+                                                <option value="AM">Amazonas</option>
+                                                <option value="BA">Bahia</option>
+                                                <option value="CE">Ceará</option>
+                                                <option value="DF">Distrito Federal</option>
+                                                <option value="ES">Espírito Santo</option>
+                                                <option value="GO">Goiás</option>
+                                                <option value="MA">Maranhão</option>
+                                                <option value="MT">Mato Grosso</option>
+                                                <option value="MS">Mato Grosso do Sul</option>
+                                                <option value="MG">Minas Gerais</option>
+                                                <option value="PA">Pará</option>
+                                                <option value="PB">Paraíba</option>
+                                                <option value="PR">Paraná</option>
+                                                <option value="PE">Pernambuco</option>
+                                                <option value="PI">Piauí</option>
+                                                <option value="RJ">Rio de Janeiro</option>
+                                                <option value="RN">Rio Grande do Norte</option>
+                                                <option value="RS">Rio Grande do Sul</option>
+                                                <option value="RO">Rondônia</option>
+                                                <option value="RR">Roraima</option>
+                                                <option value="SC">Santa Catarina</option>
+                                                <option value="SP">São Paulo</option>
+                                                <option value="SE">Sergipe</option>
+                                                <option value="TO">Tocantins</option>
+                                            </select>
+                                            <span class="error-message"></span>
+                                        </div>
+                                    </div>
+                                </form>
+
+                                <h2>Método de Pagamento</h2>
+                                <div class="payment-methods">
+                                    <div class="payment-option">
+                                        <input type="radio" id="credit-card" name="payment" value="credit" checked>
+                                        <label for="credit-card">
+                                            <i class="fas fa-credit-card"></i>
+                                            Cartão de Crédito
+                                        </label>
+                                    </div>
+                                    <div class="payment-option">
+                                        <input type="radio" id="debit-card" name="payment" value="debit">
+                                        <label for="debit-card">
+                                            <i class="fas fa-credit-card"></i>
+                                            Cartão de Débito
+                                        </label>
+                                    </div>
+                                    <div class="payment-option">
+                                        <input type="radio" id="pix" name="payment" value="pix">
+                                        <label for="pix">
+                                            <i class="fab fa-pix"></i>
+                                            Pix
+                                        </label>
+                                    </div>
+                                    <div class="payment-option">
+                                        <input type="radio" id="paypal" name="payment" value="paypal">
+                                        <label for="paypal">
+                                            <i class="fab fa-paypal"></i>
+                                            PayPal
+                                        </label>
+                                    </div>
+                                    <div class="payment-option">
+                                        <input type="radio" id="boleto" name="payment" value="boleto">
+                                        <label for="boleto">
+                                            <i class="fas fa-barcode"></i>
+                                            Boleto Bancário
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Credit Card Form (shown when credit card is selected) -->
+                                <div id="credit-card-form" class="payment-form">
+                                    <div class="form-group">
+                                        <label for="card-number">Número do Cartão *</label>
+                                        <input type="text" id="card-number" placeholder="0000 0000 0000 0000" maxlength="19">
+                                        <span class="error-message"></span>
+                                    </div>
+                                    <div class="form-grid">
+                                        <div class="form-group">
+                                            <label for="card-name">Nome no Cartão *</label>
+                                            <input type="text" id="card-name" placeholder="NOME COMO ESTÁ NO CARTÃO">
+                                            <span class="error-message"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="card-expiry">Validade *</label>
+                                            <input type="text" id="card-expiry" placeholder="MM/AA" maxlength="5">
+                                            <span class="error-message"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="card-cvv">CVV *</label>
+                                            <input type="text" id="card-cvv" placeholder="000" maxlength="4">
+                                            <span class="error-message"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="installments">Parcelas</label>
+                                        <select id="installments">
+                                            <option value="1">1x de R$ <span id="installment-1"></span> sem juros</option>
+                                            <option value="2">2x de R$ <span id="installment-2"></span> sem juros</option>
+                                            <option value="3">3x de R$ <span id="installment-3"></span> sem juros</option>
+                                            <option value="4">4x de R$ <span id="installment-4"></span> sem juros</option>
+                                            <option value="5">5x de R$ <span id="installment-5"></span> sem juros</option>
+                                            <option value="6">6x de R$ <span id="installment-6"></span> sem juros</option>
+                                            <option value="7">7x de R$ <span id="installment-7"></span> com juros</option>
+                                            <option value="8">8x de R$ <span id="installment-8"></span> com juros</option>
+                                            <option value="9">9x de R$ <span id="installment-9"></span> com juros</option>
+                                            <option value="10">10x de R$ <span id="installment-10"></span> com juros</option>
+                                            <option value="11">11x de R$ <span id="installment-11"></span> com juros</option>
+                                            <option value="12">12x de R$ <span id="installment-12"></span> com juros</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Order Summary -->
+                        <div class="checkout-right" data-aos="fade-left">
+                            <div class="order-summary">
+                                <h2>Resumo do Pedido</h2>
+                                <div id="order-items" class="order-items">
+                                    <!-- Order items will be loaded here -->
+                                </div>
+                                <div class="order-totals">
+                                    <div class="total-row">
+                                        <span>Subtotal:</span>
+                                        <span>R$ <span id="order-subtotal">0.00</span></span>
+                                    </div>
+                                    <div class="total-row">
+                                        <span>Frete:</span>
+                                        <span id="order-shipping">0.00</span>
+                                    </div>
+                                    <div class="total-row discount">
+                                        <span>Desconto:</span>
+                                        <span>-R$ <span id="order-discount">0.00</span></span>
+                                    </div>
+                                    <div class="total-row total">
+                                        <strong>Total:</strong>
+                                        <strong>R$ <span id="order-total">0.00</span></strong>
+                                    </div>
+                                </div>
+                                <div class="order-actions">
+                                    <button class="btn btn-secondary" onclick="window.location.href='index.html'">
+                                        <i class="fas fa-arrow-left"></i>
+                                        Continuar Comprando
+                                    </button>
+                                    <button class="btn btn-primary" onclick="processPayment()">
+                                        <i class="fas fa-lock"></i>
+                                        Finalizar Pedido
+                                    </button>
+                                </div>
+                                <div class="security-info">
+                                    <div class="security-item">
+                                        <i class="fas fa-shield-alt"></i>
+                                        <span>Compra 100% Segura</span>
+                                    </div>
+                                    <div class="security-item">
+                                        <i class="fas fa-lock"></i>
+                                        <span>Dados Criptografados</span>
+                                    </div>
+                                    <div class="security-item">
+                                        <i class="fas fa-certificate"></i>
+                                        <span>SSL Certificado</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <div class="footer-logo">
+                            <h3><i class="fas fa-bolt"></i> TechStore</h3>
+                            <p>Tecnologia e inovação ao seu alcance. Os melhores produtos com os melhores preços.</p>
+                        </div>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Institucional</h4>
+                        <ul>
+                            <li><a href="about.html"><i class="fas fa-chevron-right"></i> Sobre Nós</a></li>
+                            <li><a href="privacy.html"><i class="fas fa-chevron-right"></i> Política de Privacidade</a></li>
+                            <li><a href="terms.html"><i class="fas fa-chevron-right"></i> Termos de Uso</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Ajuda</h4>
+                        <ul>
+                            <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contato</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Central de Ajuda</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Trocas e Devoluções</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Contato</h4>
+                        <div class="contact-info">
+                            <p><i class="fas fa-phone"></i> (11) 1234-5678</p>
+                            <p><i class="fas fa-envelope"></i> contato@techstore.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2024 TechStore. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Carrinho de Compras</h3>
+            <button onclick="toggleCart()"><i class="fas fa-times"></i></button>
+        </div>
+        <div id="cart-items" class="cart-items">
+            <!-- Cart items will be loaded here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-totals">
+                <div class="cart-row">
+                    <span>Subtotal:</span>
+                    <span>R$ <span id="cart-subtotal">0.00</span></span>
+                </div>
+                <div class="cart-row discount-row">
+                    <span>Desconto:</span>
+                    <span>-R$ <span id="cart-discount">0.00</span></span>
+                </div>
+                <div class="cart-row total-row">
+                    <strong>Total:</strong>
+                    <strong>R$ <span id="cart-total">0.00</span></strong>
+                </div>
+            </div>
+            <button class="btn btn-primary" onclick="window.location.href='checkout.html'">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <div id="overlay" class="overlay hidden" onclick="toggleCart()"></div>
+
+    <script src="products.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script-new.js"></script>
+    <script>
+        // Checkout specific functionality
+        let orderData = {};
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS
+            AOS.init({
+                duration: 1000,
+                once: true,
+                offset: 100
+            });
+            
+            // Load cart and display order summary
+            loadCartFromStorage();
+            updateOrderSummary();
+            updateInstallments();
+            
+            // Setup payment method change handler
+            setupPaymentMethodHandler();
+            
+            // Setup form validation
+            setupFormValidation();
+        });
+
+        function updateOrderSummary() {
+            const orderItems = document.getElementById('order-items');
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const discount = subtotal > 500 ? subtotal * 0.1 : 0;
+            const shipping = subtotal > 299 ? 0 : 15.90;
+            const total = subtotal - discount + shipping;
+            
+            if (cart.length === 0) {
+                orderItems.innerHTML = '<p class="empty-cart-message">Seu carrinho está vazio.</p>';
+                return;
+            }
+            
+            orderItems.innerHTML = cart.map(item => `
+                <div class="order-item">
+                    <img src="${item.image}" alt="${item.name}" class="order-item-image">
+                    <div class="order-item-info">
+                        <div class="order-item-name">${item.name}</div>
+                        <div class="order-item-details">
+                            <span>Qtd: ${item.quantity}</span>
+                            <span>R$ ${item.price.toFixed(2)}</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            
+            document.getElementById('order-subtotal').textContent = subtotal.toFixed(2);
+            document.getElementById('order-shipping').textContent = shipping > 0 ? shipping.toFixed(2) : 'GRÁTIS';
+            document.getElementById('order-discount').textContent = discount.toFixed(2);
+            document.getElementById('order-total').textContent = total.toFixed(2);
+        }
+
+        function updateInstallments() {
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const discount = total > 500 ? total * 0.1 : 0;
+            const finalTotal = total - discount;
+            
+            for (let i = 1; i <= 12; i++) {
+                const installmentElement = document.getElementById(`installment-${i}`);
+                if (installmentElement) {
+                    const installmentValue = finalTotal / i;
+                    const interest = i > 6 ? 0.0199 : 0; // 1.99% de juros acima de 6x
+                    const finalInstallment = installmentValue * (1 + interest);
+                    installmentElement.textContent = finalInstallment.toFixed(2);
+                }
+            }
+        }
+
+        function setupPaymentMethodHandler() {
+            const paymentMethods = document.querySelectorAll('input[name="payment"]');
+            const creditCardForm = document.getElementById('credit-card-form');
+            
+            paymentMethods.forEach(method => {
+                method.addEventListener('change', function() {
+                    if (this.value === 'credit') {
+                        creditCardForm.style.display = 'block';
+                    } else {
+                        creditCardForm.style.display = 'none';
+                    }
+                });
+            });
+        }
+
+        function setupFormValidation() {
+            // CPF mask
+            document.getElementById('cpf').addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                value = value.replace(/(\d{3})(\d)/, '$1.$2');
+                value = value.replace(/(\d{3})(\d)/, '$1.$2');
+                value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+                e.target.value = value;
+            });
+            
+            // Phone mask
+            document.getElementById('phone').addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                value = value.replace(/^(\d{2})(\d)/, '($1) $2');
+                value = value.replace(/(\d)(\d{4})$/, '$1-$2');
+                e.target.value = value;
+            });
+            
+            // CEP mask
+            document.getElementById('cep').addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                value = value.replace(/^(\d{5})(\d)/, '$1-$2');
+                e.target.value = value;
+            });
+            
+            // Card number mask
+            document.getElementById('card-number').addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                value = value.replace(/(\d{4})(\d)/, '$1 $2');
+                value = value.replace(/(\d{4})(\d)/, '$1 $2');
+                value = value.replace(/(\d{4})(\d)/, '$1 $2');
+                e.target.value = value;
+            });
+            
+            // Card expiry mask
+            document.getElementById('card-expiry').addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                value = value.replace(/(\d{2})(\d)/, '$1/$2');
+                e.target.value = value;
+            });
+        }
+
+        function searchCep() {
+            const cep = document.getElementById('cep').value.replace(/\D/g, '');
+            if (cep.length !== 8) {
+                showNotification('CEP inválido!', 'error');
+                return;
+            }
+            
+            // Simulated CEP search (in real app, would call an API)
+            setTimeout(() => {
+                document.getElementById('address').value = 'Rua das Flores';
+                document.getElementById('number').value = '123';
+                document.getElementById('neighborhood').value = 'Centro';
+                document.getElementById('city').value = 'São Paulo';
+                document.getElementById('state').value = 'SP';
+                showNotification('CEP encontrado!', 'success');
+            }, 1000);
+        }
+
+        function validateForm() {
+            let isValid = true;
+            const requiredFields = ['name', 'email', 'phone', 'cpf', 'cep', 'address', 'number', 'neighborhood', 'city', 'state'];
+            
+            requiredFields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                const errorMessage = field.parentElement.querySelector('.error-message');
+                
+                if (!field.value.trim()) {
+                    field.classList.add('error');
+                    errorMessage.textContent = 'Campo obrigatório';
+                    isValid = false;
+                } else {
+                    field.classList.remove('error');
+                    errorMessage.textContent = '';
+                }
+            });
+            
+            // Email validation
+            const email = document.getElementById('email');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email.value && !emailRegex.test(email.value)) {
+                email.classList.add('error');
+                email.parentElement.querySelector('.error-message').textContent = 'E-mail inválido';
+                isValid = false;
+            }
+            
+            return isValid;
+        }
+
+        function processPayment() {
+            if (!validateForm()) {
+                showNotification('Preencha todos os campos obrigatórios!', 'error');
+                return;
+            }
+            
+            const paymentMethod = document.querySelector('input[name="payment"]:checked').value;
+            
+            // Simulate payment processing
+            showNotification('Processando pagamento...', 'info');
+            
+            setTimeout(() => {
+                // Generate order number
+                const orderNumber = 'TS' + Date.now();
+                
+                // Save order data
+                orderData = {
+                    orderNumber: orderNumber,
+                    customer: {
+                        name: document.getElementById('name').value,
+                        email: document.getElementById('email').value,
+                        phone: document.getElementById('phone').value,
+                        cpf: document.getElementById('cpf').value
+                    },
+                    address: {
+                        cep: document.getElementById('cep').value,
+                        address: document.getElementById('address').value,
+                        number: document.getElementById('number').value,
+                        complemento: document.getElementById('complemento').value,
+                        neighborhood: document.getElementById('neighborhood').value,
+                        city: document.getElementById('city').value,
+                        state: document.getElementById('state').value
+                    },
+                    payment: {
+                        method: paymentMethod,
+                        installments: document.getElementById('installments')?.value || 1
+                    },
+                    items: cart,
+                    total: document.getElementById('order-total').textContent,
+                    date: new Date().toISOString()
+                };
+                
+                // Save order to localStorage
+                localStorage.setItem('last_order', JSON.stringify(orderData));
+                
+                // Clear cart
+                cart = [];
+                saveCartToStorage();
+                
+                // Redirect to success page
+                window.location.href = 'success.html';
+            }, 2000);
+        }
+
+        function toggleUserMenu() {
+            showNotification('Funcionalidade de login em desenvolvimento', 'info');
+        }
+
+        function toggleTheme() {
+            const currentTheme = document.body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            const themeButton = document.querySelector('.btn-theme i');
+            themeButton.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            
+            showNotification(`Tema ${newTheme === 'dark' ? 'escuro' : 'claro'} ativado`, 'info');
+        }
+
+        function toggleCart() {
+            const cartSidebar = document.getElementById('cart-sidebar');
+            const overlay = document.getElementById('overlay');
+            
+            cartSidebar.classList.toggle('active');
+            overlay.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

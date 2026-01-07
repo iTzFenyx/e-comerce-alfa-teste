@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termos de Uso - TechStore</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1><i class="fas fa-bolt"></i> TechStore</h1>
+                </div>
+                <nav class="nav">
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="index.html#products">Produtos</a></li>
+                        <li><a href="about.html">Sobre</a></li>
+                        <li><a href="contact.html">Contato</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="btn-user" onclick="toggleUserMenu()" title="Minha Conta">
+                        <i class="fas fa-user"></i>
+                    </button>
+                    <button class="btn-cart" onclick="toggleCart()" title="Carrinho">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span id="cart-count" class="cart-count">0</span>
+                    </button>
+                    <button class="btn-theme" onclick="toggleTheme()" title="Alternar Tema">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="legal-section">
+            <div class="container">
+                <div class="legal-header">
+                    <h1>Termos de Uso</h1>
+                    <p>Última atualização: 7 de janeiro de 2024</p>
+                </div>
+
+                <div class="legal-content">
+                    <div class="legal-section">
+                        <h2>1. Aceitação dos Termos</h2>
+                        <p>Ao acessar e usar o site TechStore, você concorda com estes Termos de Uso. Se não concordar com estes termos, não utilize nossos serviços.</p>
+                    </div>
+
+                    <div class="legal-section">
+                        <h2>2. Descrição dos Serviços</h2>
+                        <p>A TechStore é uma plataforma de e-commerce que oferece:</p>
+                        <ul>
+                            <li>Venda de produtos eletrônicos, roupas e acessórios</li>
+                            <li>Processamento seguro de pagamentos</li>
+                            <li>Serviço de entrega em todo o Brasil</li>
+                            <li>Suporte ao cliente</li>
+                            <li>Garantia e política de devolução</li>
+                        </ul>
+                    </div>
+
+                    <div class="legal-section">
+                        <h2>3. Cadastro e Conta</h2>
+                        <p>Para realizar compras, você precisa criar uma conta:</p>
+                        <ul>
+                            <li>Fornecer informações verdadeiras e completas</li>
+                            <li>Manter seus dados atualizados</li>
+                            <li>Manter sua senha em sigilo</li>
+                            <li>Ser responsável por todas as atividades em sua conta</li>
+                        </ul>
+                        <p>A TechStore reserva-se o direito de suspender contas que violem estes termos.</p>
+                    </div>
+
+                    <div class="legal-section">
+                        <h2>4. Produtos e Preços</h2>
+                        <p>Informações importantes sobre produtos:</p>
+                        <ul>
+                            <li>Preços estão em Reais brasileiros (BRL)</li>
+                            <li>Preços podem ser alterados sem aviso prévio</li>
+                            <li>Fotos dos produtos são meramente ilustrativas</li>
+                            <li>Estoque sujeito à disponibilidade</li>
+                            <li>Limitamos a quantidade por produto para evitar revenda</li>
+                        </ul>
+                    </div>
+
+                    <div class="legal-section">
+                        <h2>5. Processo de Compra</h2>
+                        <p>O processo de compra envolve:</p>
+                        <ul>
+                            <li>Seleção de produtos e adição ao carrinho</li>
+                            <li>Confirmação do pedido</li>
+                            <li>Escolha da forma de pagamento</li>
+                            <li>Confirmação do pagamento</li>
+                            <li>Processamento e envio do pedido</li>
+                        </ul>
+                    </div>
+
+                    <div class="legal-section">
+                        <h2>6. Formas de Pagamento</h2>
+                        <p>Aceitamos as seguintes formas de pagamento:</p>
+                        <ul>
+                            <li>Cartões de crédito (Visa, Mastercard, Amex, Elo)</li>
+                            <li>Cartões de débito</li>
+                            <li>Pix</li>
+                            <li>PayPal</li>
+                            <li>Boleto bancário</li>
+                        </ul>
+                        <p>Os pagamentos são processados por provedores seguros e criptografados.</p>
+                    </div>
+
+                    <div class="legal-section">
+                        <h2>7. Entrega</h2>
+                        <p>Sobre a entrega dos produtos:</p>
+                        <ul>
+                            <li>Prazo de 5 a 10 dias úteis em todo o Brasil</li>
+                            <li>Frete grátis para compras acima de R$ 299</li>
+                            <li>Código de rastreamento fornecido</li>
+                            <li>Seguro contra perda e danos</li>
+                        </ul>
+                    </div>
+
+                    <div class="legal-section">
+                        <h2>8. Política de Devolução</h2>
+                        <p>Política de devolução e troca:</p>
+                        <ul>
+                            <li>30 dias para solicitar devolução</li>
+                            <li>Produto deve estar na embalagem original</li>
+                            <li>Comprovação de compra necessária</li>
+                            <li>Defeitos de fabricante: troca imediata</li>
+                            <li>Arrependimento: reembolso integral</li>
+                        </ul>
+                    </div>
+
+                    <div class="legal-section">
+                        <h2>9. Garantia</h2>
+                        <p>Todos os produtos possuem garantia:</p>
+                        <ul>
+                            <li>90 dias para defeitos de fabricação</li>
+                            <li>Não cobre danos por uso indevido</li>
+                            <li>Garantia estendida disponível para alguns produtos</li>
+                        </ul>
+                    </div>
+
+                    <div class="legal-section">
+                        <h2>10. Propriedade Intelectual</h2>
+                        <p>Todo o conteúdo do site TechStore é protegido por direitos autorais e outras leis de propriedade intelectual. Você não pode:</p>
+                        <ul>
+                            <li>Copiar, reproduzir ou distribuir nosso conteúdo</li>
+                            <li>Usar marcas registradas sem autorização</li>
+                            <li>Realizar engenharia reversa de nossos sistemas</li>
+                        </ul>
+                    </div>
+
+                    <div class="legal-section">
+                        <h2>11. Limitação de Responsabilidade</h2>
+                        <p>A TechStore não é responsável por:</p>
+                        <ul>
+                            <li>Indisponibilidade temporária do site</li>
+                            <li>Perdas ou danos indiretos</li>
+                            <li>Uso indevido do site por terceiros</li>
+                            <li>Conteúdo de sites vinculados</li>
+                        </ul>
+                    </div>
+
+                    <div class="legal-section">
+                        <h2>12. Rescisão</h2>
+                        <p>Podemos rescindir ou suspender seu acesso:</p>
+                        <ul>
+                            <li>Por violação destes termos</li>
+                            <li>Por atividades fraudulentas</li>
+                            <li>Com aviso prévio de 30 dias (quando aplicável)</li>
+                        </ul>
+                    </div>
+
+                    <div class="legal-section">
+                        <h2>13. Lei Aplicável</h2>
+                        <p>Estes termos são regidos pelas leis brasileiras. Qualquer disputa será resolvida nos tribunais de São Paulo, SP.</p>
+                    </div>
+
+                    <div class="legal-section">
+                        <h2>14. Alterações dos Termos</h2>
+                        <p>Reservamo-nos o direito de modificar estes termos a qualquer momento. As alterações entram em vigor quando publicadas no site. O uso continuado dos serviços constitui aceitação dos termos modificados.</p>
+                    </div>
+
+                    <div class="legal-section">
+                        <h2>15. Contato</h2>
+                        <p>Para dúvidas sobre estes termos, entre em contato:</p>
+                        <ul>
+                            <li><strong>E-mail:</strong> legal@techstore.com</li>
+                            <li><strong>Telefone:</strong> (11) 1234-5678</li>
+                            <li><strong>Endereço:</strong> Rua das Flores, 123 - São Paulo, SP</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <div class="footer-logo">
+                            <h3><i class="fas fa-bolt"></i> TechStore</h3>
+                            <p>Tecnologia e inovação ao seu alcance. Os melhores produtos com os melhores preços.</p>
+                        </div>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Institucional</h4>
+                        <ul>
+                            <li><a href="about.html"><i class="fas fa-chevron-right"></i> Sobre Nós</a></li>
+                            <li><a href="privacy.html"><i class="fas fa-chevron-right"></i> Política de Privacidade</a></li>
+                            <li><a href="terms.html"><i class="fas fa-chevron-right"></i> Termos de Uso</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Ajuda</h4>
+                        <ul>
+                            <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contato</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Central de Ajuda</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Trocas e Devoluções</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Contato</h4>
+                        <div class="contact-info">
+                            <p><i class="fas fa-phone"></i> (11) 1234-5678</p>
+                            <p><i class="fas fa-envelope"></i> contato@techstore.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2024 TechStore. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script-new.js"></script>
+    <script>
+        function toggleUserMenu() {
+            showNotification('Funcionalidade de login em desenvolvimento', 'info');
+        }
+
+        function toggleTheme() {
+            const currentTheme = document.body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            const themeButton = document.querySelector('.btn-theme i');
+            themeButton.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            
+            showNotification(`Tema ${newTheme === 'dark' ? 'escuro' : 'claro'} ativado`, 'info');
+        }
+
+        function toggleCart() {
+            const cartSidebar = document.getElementById('cart-sidebar');
+            const overlay = document.getElementById('overlay');
+            
+            cartSidebar.classList.toggle('active');
+            overlay.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

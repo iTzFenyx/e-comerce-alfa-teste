@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós - TechStore</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1><i class="fas fa-bolt"></i> TechStore</h1>
+                </div>
+                <nav class="nav">
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="index.html#products">Produtos</a></li>
+                        <li><a href="about.html" class="active">Sobre</a></li>
+                        <li><a href="contact.html">Contato</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="btn-user" onclick="toggleUserMenu()" title="Minha Conta">
+                        <i class="fas fa-user"></i>
+                    </button>
+                    <button class="btn-cart" onclick="toggleCart()" title="Carrinho">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span id="cart-count" class="cart-count">0</span>
+                    </button>
+                    <button class="btn-theme" onclick="toggleTheme()" title="Alternar Tema">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="about-hero">
+            <div class="container">
+                <div class="about-hero-content" data-aos="fade-up">
+                    <h1 class="gradient-text">Sobre a TechStore</h1>
+                    <p>Tecnologia que transforma vidas e conecta pessoas</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Story -->
+        <section class="about-story">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <h2>Nossa História</h2>
+                    <p>Uma jornada de inovação e paixão por tecnologia</p>
+                </div>
+                
+                <div class="story-content">
+                    <div class="story-text" data-aos="fade-right">
+                        <p>Fundada em 2020, a TechStore nasceu do sonho de tornar a tecnologia acessível a todos. Começamos como uma pequena loja online com apenas 10 produtos e um grande propósito: conectar pessoas com as melhores inovações tecnológicas.</p>
+                        
+                        <p>Hoje, somos uma das principais plataformas de e-commerce de tecnologia do Brasil, com mais de 10.000 produtos e clientes em todo o país. Nossa missão continua a mesma: oferecer produtos de qualidade com preços justos e um atendimento excepcional.</p>
+                        
+                        <p>Acreditamos que a tecnologia tem o poder de transformar vidas, facilitar o dia a dia e criar novas oportunidades. Por isso, selecionamos cuidadosamente cada produto em nosso catálogo, garantindo qualidade, durabilidade e inovação.</p>
+                    </div>
+                    
+                    <div class="story-stats" data-aos="fade-left">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-number">10K+</span>
+                                <span class="stat-label">Clientes Satisfeitos</span>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-box"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-number">500+</span>
+                                <span class="stat-label">Produtos</span>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-number">4.8★</span>
+                                <span class="stat-label">Avaliação Média</span>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-number">98%</span>
+                                <span class="stat-label">Satisfação</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission & Values -->
+        <section class="about-values">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <h2>Nossa Missão e Valores</h2>
+                    <p>O que nos move e guia nossas decisões</p>
+                </div>
+                
+                <div class="values-grid">
+                    <div class="value-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="value-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3>Missão</h3>
+                        <p>Tornar a tecnologia acessível a todos, oferecendo produtos inovadores que melhorem a vida das pessoas.</p>
+                    </div>
+                    
+                    <div class="value-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="value-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h3>Visão</h3>
+                        <p>Ser a principal plataforma de tecnologia da América Latina, reconhecida pela qualidade e inovação.</p>
+                    </div>
+                    
+                    <div class="value-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="value-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Valores</h3>
+                        <p>Inovação, qualidade, transparência e compromisso com a satisfação total dos nossos clientes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team -->
+        <section class="about-team">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <h2>Nossa Equipe</h2>
+                    <p>As pessoas que fazem a TechStore acontecer</p>
+                </div>
+                
+                <div class="team-grid">
+                    <div class="team-member" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="member-photo">
+                            <img src="https://picsum.photos/200/200?random=1" alt="CEO">
+                        </div>
+                        <h3>João Silva</h3>
+                        <p class="member-role">CEO & Fundador</p>
+                        <p class="member-bio">Empreendedor apaixonado por tecnologia com mais de 15 anos de experiência.</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="member-photo">
+                            <img src="https://picsum.photos/200/200?random=2" alt="CTO">
+                        </div>
+                        <h3>Maria Santos</h3>
+                        <p class="member-role">CTO</p>
+                        <p class="member-bio">Especialista em e-commerce e inovação tecnológica com foco em experiência do usuário.</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="member-photo">
+                            <img src="https://picsum.photos/200/200?random=3" alt="Head of Marketing">
+                        </div>
+                        <h3>Carlos Oliveira</h3>
+                        <p class="member-role">Head de Marketing</p>
+                        <p class="member-bio">Estrategista digital especializado em growth e marketing de performance.</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="member-photo">
+                            <img src="https://picsum.photos/200/200?random=4" alt="Head de Atendimento">
+                        </div>
+                        <h3>Ana Costa</h3>
+                        <p class="member-role">Head de Atendimento</p>
+                        <p class="member-bio">Líder em customer experience com foco na satisfação do cliente.</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Differentiators -->
+        <section class="about-differentiators">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <h2>Por que escolher a TechStore?</h2>
+                    <p>O que nos torna diferentes e especiais</p>
+                </div>
+                
+                <div class="differentiators-grid">
+                    <div class="differentiator-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="differentiator-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Compra Segura</h3>
+                        <p>SSL certificado e dados criptografados. Sua compra 100% segura.</p>
+                    </div>
+                    
+                    <div class="differentiator-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="differentiator-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h3>Entrega Rápida</h3>
+                        <p>Frete rápido para todo o Brasil. Entrega em até 10 dias úteis.</p>
+                    </div>
+                    
+                    <div class="differentiator-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="differentiator-icon">
+                            <i class="fas fa-undo"></i>
+                        </div>
+                        <h3>30 Dias para Devolução</h3>
+                        <p>Não gostou? Devolva em até 30 dias. Sem burocracia.</p>
+                    </div>
+                    
+                    <div class="differentiator-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="differentiator-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3>Suporte Especializado</h3>
+                        <p>Equipe pronta para ajudar. Suporte via chat, e-mail e telefone.</p>
+                    </div>
+                    
+                    <div class="differentiator-card" data-aos="fade-up" data-aos-delay="500">
+                        <div class="differentiator-icon">
+                            <i class="fas fa-tags"></i>
+                        </div>
+                        <h3>Preços Justos</h3>
+                        <p>Os melhores preços do mercado sem perder a qualidade.</p>
+                    </div>
+                    
+                    <div class="differentiator-card" data-aos="fade-up" data-aos-delay="600">
+                        <div class="differentiator-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h3>Produtos Originais</h3>
+                        <p>100% originais com garantia direta do fabricante.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="about-cta">
+            <div class="container">
+                <div class="cta-content" data-aos="zoom-in">
+                    <h2>Pronto para transformar sua vida com tecnologia?</h2>
+                    <p>Descubra nossos produtos e junte-se a milhares de clientes satisfeitos</p>
+                    <div class="cta-actions">
+                        <a href="index.html#products" class="btn btn-primary btn-large">
+                            <i class="fas fa-shopping-bag"></i>
+                            Ver Produtos
+                        </a>
+                        <a href="contact.html" class="btn btn-secondary btn-large">
+                            <i class="fas fa-comments"></i>
+                            Fale Conosco
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <div class="footer-logo">
+                            <h3><i class="fas fa-bolt"></i> TechStore</h3>
+                            <p>Tecnologia e inovação ao seu alcance. Os melhores produtos com os melhores preços.</p>
+                        </div>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Institucional</h4>
+                        <ul>
+                            <li><a href="about.html"><i class="fas fa-chevron-right"></i> Sobre Nós</a></li>
+                            <li><a href="privacy.html"><i class="fas fa-chevron-right"></i> Política de Privacidade</a></li>
+                            <li><a href="terms.html"><i class="fas fa-chevron-right"></i> Termos de Uso</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Ajuda</h4>
+                        <ul>
+                            <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contato</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Central de Ajuda</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Trocas e Devoluções</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Contato</h4>
+                        <div class="contact-info">
+                            <p><i class="fas fa-phone"></i> (11) 1234-5678</p>
+                            <p><i class="fas fa-envelope"></i> contato@techstore.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2024 TechStore. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Carrinho de Compras</h3>
+            <button onclick="toggleCart()"><i class="fas fa-times"></i></button>
+        </div>
+        <div id="cart-items" class="cart-items">
+            <!-- Cart items will be loaded here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-totals">
+                <div class="cart-row">
+                    <span>Subtotal:</span>
+                    <span>R$ <span id="cart-subtotal">0.00</span></span>
+                </div>
+                <div class="cart-row discount-row">
+                    <span>Desconto:</span>
+                    <span>-R$ <span id="cart-discount">0.00</span></span>
+                </div>
+                <div class="cart-row total-row">
+                    <strong>Total:</strong>
+                    <strong>R$ <span id="cart-total">0.00</span></strong>
+                </div>
+            </div>
+            <button class="btn btn-primary" onclick="window.location.href='checkout.html'">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <div id="overlay" class="overlay hidden" onclick="toggleCart()"></div>
+
+    <script src="products.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script-new.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS
+            AOS.init({
+                duration: 1000,
+                once: true,
+                offset: 100
+            });
+            
+            // Load cart
+            loadCartFromStorage();
+            updateCartUI();
+        });
+
+        function toggleUserMenu() {
+            showNotification('Funcionalidade de login em desenvolvimento', 'info');
+        }
+
+        function toggleTheme() {
+            const currentTheme = document.body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            const themeButton = document.querySelector('.btn-theme i');
+            themeButton.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            
+            showNotification(`Tema ${newTheme === 'dark' ? 'escuro' : 'claro'} ativado`, 'info');
+        }
+
+        function toggleCart() {
+            const cartSidebar = document.getElementById('cart-sidebar');
+            const overlay = document.getElementById('overlay');
+            
+            cartSidebar.classList.toggle('active');
+            overlay.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
